@@ -529,6 +529,20 @@ impl RuntimeHandle {
             return value == 1;
         }
     }
+
+    pub fn mouse_x(&mut self) -> i16 {
+        unsafe {
+            let value = (self.input_state_callback)( 0, libretro_sys::DEVICE_MOUSE, 0, libretro_sys::DEVICE_ID_MOUSE_X );
+            value
+        }
+    }
+
+    pub fn mouse_y(&mut self) -> i16 {
+        unsafe {
+            let value = (self.input_state_callback)( 0, libretro_sys::DEVICE_MOUSE, 0, libretro_sys::DEVICE_ID_MOUSE_Y );
+            value
+        }
+    }
 }
 
 #[doc(hidden)]
