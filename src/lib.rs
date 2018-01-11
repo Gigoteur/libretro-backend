@@ -543,6 +543,27 @@ impl RuntimeHandle {
             value
         }
     }
+
+    pub fn mouse_click_left(&mut self) -> i16 {
+        unsafe {
+            let value = (self.input_state_callback)( 0, libretro_sys::DEVICE_MOUSE, 0, libretro_sys::DEVICE_ID_MOUSE_LEFT);
+            value
+        }
+    }
+
+    pub fn mouse_click_right(&mut self) -> i16 {
+        unsafe {
+            let value = (self.input_state_callback)( 0, libretro_sys::DEVICE_MOUSE, 0, libretro_sys::DEVICE_ID_MOUSE_RIGHT);
+            value
+        }
+    }
+
+    pub fn mouse_click_middle(&mut self) -> i16 {
+        unsafe {
+            let value = (self.input_state_callback)( 0, libretro_sys::DEVICE_MOUSE, 0, libretro_sys::DEVICE_ID_MOUSE_MIDDLE);
+            value
+        }
+    }
 }
 
 #[doc(hidden)]
